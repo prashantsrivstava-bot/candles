@@ -1,0 +1,125 @@
+{
+  "project_name": "Soil and Scent Landing Page",
+  "theme": "light",
+  "archetype": "Organic & Earthy",
+  "design_philosophy": "E1 Anti-AI Design: Fusion over imitation, generous spacing, emotional warmth, contrast between elegant serif headings and clean sans-serif body. No standard center-aligned Bootstrap layouts.",
+  "colors": {
+    "background": {
+      "primary": "#FDFBF7",
+      "secondary": "#F4F1EA",
+      "accent_bg": "#EFEBE1"
+    },
+    "text": {
+      "primary": "#2B2B2B",
+      "secondary": "#5C5C5C",
+      "inverse": "#FDFBF7"
+    },
+    "brand": {
+      "primary": "#C05C3D",
+      "primary_hover": "#A84C30",
+      "secondary": "#8B9A8B",
+      "whatsapp": "#25D366"
+    },
+    "border": "#E6E2D6"
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cormorant Garamond",
+      "body": "Manrope",
+      "accent": "Manrope"
+    },
+    "hierarchy": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#2B2B2B]",
+      "h2": "text-4xl md:text-5xl font-light tracking-tight text-[#2B2B2B]",
+      "h3": "text-2xl md:text-3xl font-medium text-[#2B2B2B]",
+      "body": "text-base md:text-lg font-light leading-relaxed text-[#5C5C5C]",
+      "overline": "text-xs font-bold uppercase tracking-[0.2em] text-[#C05C3D]",
+      "button": "text-sm font-semibold uppercase tracking-widest"
+    }
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "section_padding": "py-24 md:py-32",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12"
+  },
+  "surfaces_and_components": {
+    "header": "backdrop-blur-xl bg-[#FDFBF7]/80 border-b border-[#E6E2D6]/50 sticky top-0 z-50",
+    "button_primary": "bg-[#C05C3D] text-[#FDFBF7] px-8 py-4 rounded-none hover:bg-[#A84C30] transition-colors duration-300",
+    "button_secondary": "bg-transparent text-[#2B2B2B] px-8 py-4 border border-[#2B2B2B] rounded-none hover:bg-[#2B2B2B] hover:text-[#FDFBF7] transition-colors duration-300",
+    "card": "bg-[#F4F1EA] p-8 md:p-12 rounded-none border border-[#E6E2D6] transition-transform duration-300 hover:-translate-y-1",
+    "whatsapp_float": "fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/nagpei0h_ChatGPT%20Image%20Mar%2025%2C%202026%2C%2010_18_55%20PM.png",
+        "category": "hero",
+        "description": "Teddy bear, roses, daisy on grass - Use in the Hero section."
+      },
+      {
+        "url": "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/7885wsac_WhatsApp%20Image%202026-03-25%20at%2022.15.14.jpeg",
+        "category": "product_gallery",
+        "description": "Single daisy candle on fabric - Use in the Product Showcase Gallery."
+      },
+      {
+        "url": "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/c9fcaasz_WhatsApp%20Image%202026-03-25%20at%2022.15.17%20%281%29.jpeg",
+        "category": "product_gallery",
+        "description": "Orange flower candle with water droplets - Use in the Product Showcase Gallery."
+      },
+      {
+        "url": "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/4haijl25_WhatsApp%20Image%202026-03-25%20at%2022.15.17.jpeg",
+        "category": "product_gallery",
+        "description": "Daisy candle on wood slice with baby's breath - Use in the Product Showcase Gallery."
+      },
+      {
+        "url": "https://images.pexels.com/photos/7234515/pexels-photo-7234515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "about_us",
+        "description": "A woman carefully setting a candle wick in her home workshop - Use in the About Us / Our Story section."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1766393030567-2204662b0be2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxhZXN0aGV0aWMlMjB3YXJtJTIwbGl2aW5nJTIwcm9vbSUyMGNhbmRsZXN8ZW58MHx8fHwxNzc0NDU3NzgxfDA&ixlib=rb-4.1.0&q=85",
+        "category": "testimonials_background",
+        "description": "A candle burns beside a lamp in a cozy room - Use as a soft, low-opacity background or side image in the Testimonials section."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "name": "Header & Nav",
+      "instructions": "Crystal glassmorphism sticky header. Logo 'Soil and Scent' on the left in Cormorant Garamond. Nav links (Shop, Story, Testimonials, Contact) hidden on mobile, hamburger for mobile. Instagram link icon and Shop Now CTA button on the right."
+    },
+    {
+      "name": "Hero Section",
+      "instructions": "Overlapping asymmetric layout. Text left, large image right. Use the teddy bear/grass image. H1: 'Artisan Candles, Hand-Poured with Love'. H1 should break lines artistically. Subtext about beautiful artisan pieces. Primary CTA 'Explore Collection'. Add generous spacing (py-32)."
+    },
+    {
+      "name": "Product Gallery",
+      "instructions": "Bento Grid (Tetris Mode) layout for the 3 remaining product images. Do not make equal squares. Make one image large (col-span-8), another tall (col-span-4 row-span-2), etc. Add subtle hover zoom to images. Give each product a clean, elegant caption."
+    },
+    {
+      "name": "Our Story",
+      "instructions": "Split layout. Warm sand background (#F4F1EA). Text block with high padding (p-12) on one side, artisan workshop image (woman setting wick) on the other. Use a serif heading and organic, narrative text."
+    },
+    {
+      "name": "Testimonials",
+      "instructions": "Minimalist slider or masonry grid. No standard cards. Use quote icons. Highlight text heavily. Background can have the cozy candle room image at 10% opacity."
+    },
+    {
+      "name": "Footer & Contact",
+      "instructions": "Massive spacing (py-24). Dark earthy background (#2B2B2B) with inverse text (#FDFBF7) to create contrast. Large 'Let's Connect' heading. Include Instagram (@soilandscent) and Email links."
+    },
+    {
+      "name": "Floating Action",
+      "instructions": "Fixed floating WhatsApp button. Background #25D366. Icon from lucide-react or react-icons. On click, it must open 'https://wa.me/8789028909?text=Hi!%20I'm%20interested%20in%20your%20candles'. Tooltip or hover effect should say 'Chat with us'."
+    }
+  ],
+  "technical_requirements": {
+    "dependencies": [
+      "lucide-react",
+      "react-icons",
+      "framer-motion"
+    ],
+    "testing": "All interactive elements MUST have a data-testid attribute (e.g., data-testid='hero-cta-button', data-testid='whatsapp-float-button').",
+    "accessibility": "Ensure high contrast. Set text color explicitly on hover. Include aria-labels on icon buttons."
+  }
+}
