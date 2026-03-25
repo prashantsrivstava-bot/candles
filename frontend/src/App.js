@@ -5,9 +5,7 @@ import {
   Menu, 
   X, 
   Instagram, 
-  Mail, 
   MessageCircle,
-  Quote,
   Sparkles,
   Heart,
   Leaf
@@ -24,8 +22,7 @@ const IMAGES = {
   product1: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/7885wsac_WhatsApp%20Image%202026-03-25%20at%2022.15.14.jpeg",
   product2: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/c9fcaasz_WhatsApp%20Image%202026-03-25%20at%2022.15.17%20%281%29.jpeg",
   product3: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/4haijl25_WhatsApp%20Image%202026-03-25%20at%2022.15.17.jpeg",
-  about: "https://images.pexels.com/photos/7234515/pexels-photo-7234515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  testimonialBg: "https://images.unsplash.com/photo-1766393030567-2204662b0be2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwyfHxhZXN0aGV0aWMlMjB3YXJtJTIwbGl2aW5nJTIwcm9vbSUyMGNhbmRsZXN8ZW58MHx8fHwxNzc0NDU3NzgxfDA&ixlib=rb-4.1.0&q=85"
+  about: "https://images.pexels.com/photos/7234515/pexels-photo-7234515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 };
 
 // Products data
@@ -99,9 +96,6 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
             <a href="#story" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
               Our Story
             </a>
-            <a href="#testimonials" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
-              Testimonials
-            </a>
             <a href="#contact" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
               Contact
             </a>
@@ -153,7 +147,6 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
             <div className="px-6 py-8 flex flex-col gap-6">
               <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Shop</a>
               <a href="#story" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Our Story</a>
-              <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Testimonials</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Contact</a>
               <div className="flex items-center gap-4 pt-4 border-t border-[#E6E2D6]">
                 <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-[#5C5C5C]">
@@ -439,82 +432,12 @@ const StorySection = () => {
   );
 };
 
-// Testimonials Section
-const TestimonialsSection = () => {
-  return (
-    <section 
-      id="testimonials" 
-      className="py-24 md:py-32 bg-[#F4F1EA] relative overflow-hidden"
-      data-testid="testimonials-section"
-    >
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: `url(${IMAGES.testimonialBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C05C3D] mb-4 block">
-            Kind Words
-          </span>
-          <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light tracking-tight text-[#2B2B2B]">
-            What Our Customers Say
-          </h2>
-        </motion.div>
-
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="testimonial-card bg-[#FDFBF7] p-8 md:p-10 border border-[#E6E2D6] relative"
-              data-testid={`testimonial-card-${testimonial.id}`}
-            >
-              <Quote className="w-10 h-10 text-[#C05C3D]/20 mb-6" />
-              <p className="text-[#5C5C5C] text-base leading-relaxed mb-8">
-                "{testimonial.text}"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#C05C3D]/10 flex items-center justify-center">
-                  <span className="font-['Cormorant_Garamond'] text-xl font-semibold text-[#C05C3D]">
-                    {testimonial.name.charAt(0)}
-                  </span>
-                </div>
-                <div>
-                  <div className="font-medium text-[#2B2B2B]">{testimonial.name}</div>
-                  <div className="text-sm text-[#5C5C5C]">{testimonial.location}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 // Footer Section
 const FooterSection = () => {
   return (
     <footer id="contact" className="bg-[#2B2B2B] py-20 md:py-28" data-testid="footer-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-8">
           {/* Left - Brand & CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -570,7 +493,7 @@ const FooterSection = () => {
                 @soilandscent
               </a>
             </div>
-            <div className="mb-8">
+            <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#C05C3D] mb-4">
                 WhatsApp
               </h4>
@@ -585,27 +508,11 @@ const FooterSection = () => {
                 +91 {WHATSAPP_NUMBER}
               </a>
             </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#C05C3D] mb-4">
-                Email
-              </h4>
-              <a 
-                href="mailto:hello@soilandscent.com"
-                className="footer-link text-[#FDFBF7] text-lg hover:text-[#C05C3D] transition-colors inline-flex items-center gap-2 md:flex-row-reverse"
-                data-testid="footer-email"
-              >
-                <Mail className="w-5 h-5" />
-                hello@soilandscent.com
-              </a>
-            </div>
           </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#FDFBF7]/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#FDFBF7]/50 text-sm">
-            © 2024 Soil & Scent. All rights reserved.
-          </p>
+        <div className="pt-8 border-t border-[#FDFBF7]/10 flex justify-center">
           <p className="text-[#FDFBF7]/50 text-sm">
             Handcrafted with <Heart className="w-3 h-3 inline text-[#C05C3D]" /> in India
           </p>
@@ -677,7 +584,6 @@ function App() {
         <HeroSection />
         <ProductsSection />
         <StorySection />
-        <TestimonialsSection />
       </main>
       <FooterSection />
       <WhatsAppFloat />
