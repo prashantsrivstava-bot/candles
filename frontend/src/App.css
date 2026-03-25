@@ -1,34 +1,197 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Soil and Scent - Custom Styles */
+
+/* Header Glassmorphism */
+.header-glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(253, 251, 247, 0.85);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Hero Image Animation */
+.hero-image {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.hero-image:hover {
+  transform: scale(1.02);
 }
 
-.App-link {
-    color: #61dafb;
+/* Product Card Hover */
+.product-card {
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(43, 43, 43, 0.1);
+}
+
+.product-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+  }
+}
+
+/* Text Reveal Animation */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+}
+
+/* Quote Icon Style */
+.quote-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px;
+  line-height: 1;
+  opacity: 0.08;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+/* Gradient Overlay for Images */
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(43, 43, 43, 0.6), transparent);
+  pointer-events: none;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Smooth Section Transitions */
+section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button Hover Effects */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  background-color: #F4F1EA;
+}
+
+/* Instagram Hover */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #C05C3D;
+}
+
+/* Loading Animation for Images */
+.img-loading {
+  background: linear-gradient(90deg, #F4F1EA 25%, #EFEBE1 50%, #F4F1EA 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  h2 {
+    font-size: 2rem !important;
+  }
+}
+
+/* Bento Grid Specific */
+.bento-item {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Footer Link Underline Effect */
+.footer-link {
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #FDFBF7;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
 }
