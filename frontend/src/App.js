@@ -11,61 +11,90 @@ import {
   Leaf
 } from "lucide-react";
 
-// Constants
-const WHATSAPP_NUMBER = "8789028909";
-const WHATSAPP_MESSAGE = encodeURIComponent("Hi! I'm interested in your candles");
+// Constants - Fixed WhatsApp with country code
+const WHATSAPP_NUMBER = "918789028909";
+const WHATSAPP_MESSAGE = encodeURIComponent("Hi! I'm interested in your products");
 const INSTAGRAM_URL = "https://instagram.com/soilandscent";
 
-// Images from user assets
+// Images
 const IMAGES = {
   hero: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/nagpei0h_ChatGPT%20Image%20Mar%2025%2C%202026%2C%2010_18_55%20PM.png",
-  product1: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/7885wsac_WhatsApp%20Image%202026-03-25%20at%2022.15.14.jpeg",
-  product2: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/c9fcaasz_WhatsApp%20Image%202026-03-25%20at%2022.15.17%20%281%29.jpeg",
-  product3: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/4haijl25_WhatsApp%20Image%202026-03-25%20at%2022.15.17.jpeg",
   about: "https://images.pexels.com/photos/7234515/pexels-photo-7234515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 };
 
-// Products data
-const PRODUCTS = [
+// Candle Products
+const CANDLES = [
   {
     id: 1,
-    name: "Daisy Dream",
-    description: "Hand-poured daisy flower candle",
-    image: IMAGES.product1
+    name: "Rose Teddy Bear",
+    description: "Handcrafted teddy with heart - Perfect gift",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/ff2rxjz2_Screenshot%202026-03-27%20090556.png",
+    featured: true
   },
   {
     id: 2,
-    name: "Orange Blossom",
-    description: "Vibrant citrus floral candle",
-    image: IMAGES.product2
+    name: "Golden Rose",
+    description: "Elegant yellow rose candle",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/entbdhw8_Screenshot%202026-03-27%20090356.png"
   },
   {
     id: 3,
+    name: "Crimson Rose",
+    description: "Classic red rose candle",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/qhlmtnko_Screenshot%202026-03-27%20090850.png"
+  },
+  {
+    id: 4,
+    name: "Ruby Teddy",
+    description: "Adorable red teddy candle",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/th52zdv0_Screenshot%202026-03-27%20090759.png"
+  },
+  {
+    id: 5,
+    name: "Bubble Cube",
+    description: "Modern sculptural candle",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/462ytt2x_Screenshot%202026-03-27%20090156.png"
+  },
+  {
+    id: 6,
+    name: "Daisy Dream",
+    description: "Delicate daisy flower candle",
+    image: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/7885wsac_WhatsApp%20Image%202026-03-25%20at%2022.15.14.jpeg"
+  },
+  {
+    id: 7,
+    name: "Orange Blossom",
+    description: "Vibrant citrus floral candle",
+    image: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/c9fcaasz_WhatsApp%20Image%202026-03-25%20at%2022.15.17%20%281%29.jpeg"
+  },
+  {
+    id: 8,
     name: "Pure Petal",
     description: "Elegant daisy on rustic wood",
-    image: IMAGES.product3
+    image: "https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/4haijl25_WhatsApp%20Image%202026-03-25%20at%2022.15.17.jpeg"
   }
 ];
 
-// Testimonials data
-const TESTIMONIALS = [
+// Architectural Candle Holders
+const HOLDERS = [
   {
     id: 1,
-    name: "Priya Sharma",
-    text: "These candles transformed my home into a sanctuary. The attention to detail is remarkable!",
-    location: "Mumbai"
+    name: "Dome Collection",
+    description: "Architectural dome & fluted holders set",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/5kqlmcxb_WhatsApp%20Image%202026-03-22%20at%2017.09.36.jpeg",
+    featured: true
   },
   {
     id: 2,
-    name: "Ananya Patel",
-    text: "Gifted the teddy bear candle to my mom. She absolutely loved it! Such unique designs.",
-    location: "Bangalore"
+    name: "Mughal Dome",
+    description: "Heritage-inspired architecture",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/fjrmynsg_WhatsApp%20Image%202026-03-22%20at%2017.09.36%20%281%29.jpeg"
   },
   {
     id: 3,
-    name: "Riya Gupta",
-    text: "The quality and fragrance are unmatched. These are now my go-to gifts for every occasion.",
-    location: "Delhi"
+    name: "Blush Bubble Set",
+    description: "Modern pink bubble tray & holder",
+    image: "https://customer-assets.emergentagent.com/job_candle-landing/artifacts/z965yeez_WhatsApp%20Image%202026-03-22%20at%2017.09.35.jpeg"
   }
 ];
 
@@ -80,7 +109,6 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <a href="#" className="flex items-center gap-2" data-testid="logo">
             <Leaf className="w-6 h-6 text-[#C05C3D]" />
             <span className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-medium text-[#2B2B2B]">
@@ -88,10 +116,12 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
             </span>
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10" data-testid="desktop-nav">
-            <a href="#products" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
-              Shop
+            <a href="#candles" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
+              Candles
+            </a>
+            <a href="#holders" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
+              Holders
             </a>
             <a href="#story" className="text-[#5C5C5C] hover:text-[#C05C3D] transition-colors text-sm font-medium tracking-wide">
               Our Story
@@ -101,7 +131,6 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
             </a>
           </nav>
 
-          {/* Right Side */}
           <div className="hidden md:flex items-center gap-6">
             <a 
               href={INSTAGRAM_URL} 
@@ -114,7 +143,7 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
               <Instagram className="w-5 h-5" />
             </a>
             <a 
-              href="#products"
+              href="#candles"
               className="btn-primary bg-[#C05C3D] text-[#FDFBF7] px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-[#A84C30] transition-colors"
               data-testid="header-shop-btn"
             >
@@ -122,7 +151,6 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <button 
             className="md:hidden text-[#2B2B2B]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -134,7 +162,6 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -145,14 +172,10 @@ const Header = ({ scrolled, mobileMenuOpen, setMobileMenuOpen }) => {
             data-testid="mobile-menu"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
-              <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Shop</a>
+              <a href="#candles" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Candles</a>
+              <a href="#holders" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Holders</a>
               <a href="#story" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Our Story</a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-[#2B2B2B] text-lg font-medium">Contact</a>
-              <div className="flex items-center gap-4 pt-4 border-t border-[#E6E2D6]">
-                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-[#5C5C5C]">
-                  <Instagram className="w-6 h-6" />
-                </a>
-              </div>
             </div>
           </motion.div>
         )}
@@ -167,7 +190,6 @@ const HeroSection = () => {
     <section className="min-h-screen pt-20 flex items-center bg-[#FDFBF7]" data-testid="hero-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -178,19 +200,19 @@ const HeroSection = () => {
               Handcrafted with Love
             </span>
             <h1 className="font-['Cormorant_Garamond'] text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#2B2B2B] leading-[1.1] mb-8">
-              Artisan Candles,
+              Artisan Candles
               <br />
-              <span className="italic">Hand-Poured</span>
+              <span className="italic">& Architectural</span>
               <br />
-              with Love
+              Holders
             </h1>
             <p className="text-base md:text-lg font-light leading-relaxed text-[#5C5C5C] mb-10 max-w-lg">
-              Transform your space with our collection of unique, hand-crafted candles. 
-              Each piece tells a story of nature, warmth, and artisanal beauty.
+              Transform your space with our collection of unique, hand-crafted candles 
+              and stunning architectural holders. Each piece tells a story of nature, warmth, and artisanal beauty.
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="#products"
+                href="#candles"
                 className="btn-primary bg-[#C05C3D] text-[#FDFBF7] px-8 py-4 text-sm font-semibold uppercase tracking-widest hover:bg-[#A84C30] transition-colors inline-flex items-center gap-2"
                 data-testid="hero-cta-button"
               >
@@ -210,7 +232,6 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Hero Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -222,7 +243,7 @@ const HeroSection = () => {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#8B9A8B]/10 rounded-full blur-2xl" />
               <img 
                 src={IMAGES.hero}
-                alt="Soil and Scent artisan candles collection featuring teddy bear and flower designs"
+                alt="Soil and Scent artisan candles collection"
                 className="hero-image w-full h-[400px] md:h-[550px] object-cover shadow-2xl"
                 data-testid="hero-image"
               />
@@ -234,12 +255,45 @@ const HeroSection = () => {
   );
 };
 
-// Products Section
-const ProductsSection = () => {
+// Product Card Component
+const ProductCard = ({ product, index, featured }) => {
   return (
-    <section id="products" className="py-24 md:py-32 bg-[#F4F1EA]" data-testid="products-section">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className={`product-card bg-[#FDFBF7] border border-[#E6E2D6] group cursor-pointer ${
+        featured ? 'md:col-span-2 md:row-span-2' : ''
+      }`}
+      data-testid={`product-card-${product.id}`}
+    >
+      <div className={`relative overflow-hidden ${featured ? 'h-full' : ''}`}>
+        <img 
+          src={product.image}
+          alt={product.name}
+          className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+            featured ? 'h-full min-h-[400px] md:min-h-[624px]' : 'h-[300px]'
+          }`}
+        />
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-[#2B2B2B]/70 to-transparent">
+          <h3 className={`font-['Cormorant_Garamond'] font-medium text-[#FDFBF7] ${
+            featured ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'
+          }`}>
+            {product.name}
+          </h3>
+          <p className="text-[#FDFBF7]/80 text-sm mt-2">{product.description}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Candles Section
+const CandlesSection = () => {
+  return (
+    <section id="candles" className="py-24 md:py-32 bg-[#F4F1EA]" data-testid="candles-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -251,86 +305,21 @@ const ProductsSection = () => {
             Our Collection
           </span>
           <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light tracking-tight text-[#2B2B2B]">
-            Crafted for Your Sanctuary
+            Handcrafted Candles
           </h2>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-          {/* Large Product - spans 8 columns */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-8 product-card bg-[#FDFBF7] border border-[#E6E2D6] group cursor-pointer"
-            data-testid="product-card-1"
-          >
-            <div className="relative overflow-hidden">
-              <img 
-                src={PRODUCTS[0].image}
-                alt={PRODUCTS[0].name}
-                className="w-full h-[300px] md:h-[450px] object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-[#2B2B2B]/70 to-transparent">
-                <h3 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-medium text-[#FDFBF7]">
-                  {PRODUCTS[0].name}
-                </h3>
-                <p className="text-[#FDFBF7]/80 text-sm mt-2">{PRODUCTS[0].description}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Tall Product - spans 4 columns, 2 rows */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-4 md:row-span-2 product-card bg-[#FDFBF7] border border-[#E6E2D6] group cursor-pointer"
-            data-testid="product-card-2"
-          >
-            <div className="relative overflow-hidden h-full">
-              <img 
-                src={PRODUCTS[1].image}
-                alt={PRODUCTS[1].name}
-                className="w-full h-[300px] md:h-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-[#2B2B2B]/70 to-transparent">
-                <h3 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-medium text-[#FDFBF7]">
-                  {PRODUCTS[1].name}
-                </h3>
-                <p className="text-[#FDFBF7]/80 text-sm mt-2">{PRODUCTS[1].description}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Third Product - spans 8 columns */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-8 product-card bg-[#FDFBF7] border border-[#E6E2D6] group cursor-pointer"
-            data-testid="product-card-3"
-          >
-            <div className="relative overflow-hidden">
-              <img 
-                src={PRODUCTS[2].image}
-                alt={PRODUCTS[2].name}
-                className="w-full h-[300px] md:h-[350px] object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-[#2B2B2B]/70 to-transparent">
-                <h3 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl font-medium text-[#FDFBF7]">
-                  {PRODUCTS[2].name}
-                </h3>
-                <p className="text-[#FDFBF7]/80 text-sm mt-2">{PRODUCTS[2].description}</p>
-              </div>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {CANDLES.map((product, index) => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              index={index}
+              featured={product.featured}
+            />
+          ))}
         </div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -339,11 +328,65 @@ const ProductsSection = () => {
           className="text-center mt-12"
         >
           <a 
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in your handcrafted candles")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary bg-[#C05C3D] text-[#FDFBF7] px-8 py-4 text-sm font-semibold uppercase tracking-widest hover:bg-[#A84C30] transition-colors inline-flex items-center gap-2"
-            data-testid="products-cta-btn"
+            data-testid="candles-cta-btn"
+          >
+            <Heart className="w-4 h-4" />
+            Order via WhatsApp
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Holders Section
+const HoldersSection = () => {
+  return (
+    <section id="holders" className="py-24 md:py-32 bg-[#FDFBF7]" data-testid="holders-section">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C05C3D] mb-4 block">
+            Elegant Decor
+          </span>
+          <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light tracking-tight text-[#2B2B2B]">
+            Architectural Candle Holders
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {HOLDERS.map((product, index) => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              index={index}
+              featured={product.featured}
+            />
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <a 
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in your architectural candle holders")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary bg-[#C05C3D] text-[#FDFBF7] px-8 py-4 text-sm font-semibold uppercase tracking-widest hover:bg-[#A84C30] transition-colors inline-flex items-center gap-2"
+            data-testid="holders-cta-btn"
           >
             <Heart className="w-4 h-4" />
             Order via WhatsApp
@@ -357,10 +400,9 @@ const ProductsSection = () => {
 // Story Section
 const StorySection = () => {
   return (
-    <section id="story" className="py-24 md:py-32 bg-[#FDFBF7]" data-testid="story-section">
+    <section id="story" className="py-24 md:py-32 bg-[#F4F1EA]" data-testid="story-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -377,7 +419,6 @@ const StorySection = () => {
             />
           </motion.div>
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -401,8 +442,9 @@ const StorySection = () => {
               </p>
               <p>
                 Each candle is carefully hand-poured with premium, eco-friendly ingredients. 
-                Our signature designs — from delicate flower petals to charming teddy bears — 
-                are created to bring warmth, beauty, and a touch of nature into your home.
+                Our signature designs — from delicate flower petals to charming teddy bears and 
+                stunning architectural holders — are created to bring warmth, beauty, and a touch 
+                of nature into your home.
               </p>
               <p>
                 We believe in the power of small moments. A flickering flame, a gentle fragrance, 
@@ -438,7 +480,6 @@ const FooterSection = () => {
     <footer id="contact" className="bg-[#2B2B2B] py-20 md:py-28" data-testid="footer-section">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-8">
-          {/* Left - Brand & CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -470,7 +511,6 @@ const FooterSection = () => {
             </a>
           </motion.div>
 
-          {/* Right - Links & Social */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -505,13 +545,12 @@ const FooterSection = () => {
                 data-testid="footer-phone"
               >
                 <MessageCircle className="w-5 h-5" />
-                +91 {WHATSAPP_NUMBER}
+                +91 8789028909
               </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#FDFBF7]/10 flex justify-center">
           <p className="text-[#FDFBF7]/50 text-sm">
             Handcrafted with <Heart className="w-3 h-3 inline text-[#C05C3D]" /> in India
@@ -582,7 +621,8 @@ function App() {
       />
       <main>
         <HeroSection />
-        <ProductsSection />
+        <CandlesSection />
+        <HoldersSection />
         <StorySection />
       </main>
       <FooterSection />
