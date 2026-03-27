@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soil & Scent - Artisan Candles</title>
+  <title>Soil & Scent - Artisan Candles & Architectural Holders</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -123,6 +123,8 @@
     .social-icon {
       color: var(--text-secondary);
       transition: all 0.3s;
+      display: flex;
+      align-items: center;
     }
 
     .social-icon:hover {
@@ -142,6 +144,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary:hover {
@@ -161,6 +165,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
 
     .btn-secondary:hover {
@@ -296,6 +301,39 @@
       transform: scale(1.02);
     }
 
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .category-tab {
+      padding: 12px 32px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .category-tab:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
+    }
+
+    .category-tab.active {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: var(--text-inverse);
+    }
+
     /* Products Section */
     .products {
       padding: 96px 0 128px;
@@ -328,10 +366,15 @@
       color: var(--text-primary);
     }
 
-    .bento-grid {
+    /* Product Grid */
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-grid.hidden {
+      display: none;
     }
 
     .product-card {
@@ -347,44 +390,27 @@
       box-shadow: 0 20px 40px rgba(43, 43, 43, 0.1);
     }
 
-    .product-card-1 {
-      grid-column: span 8;
-    }
-
-    .product-card-2 {
-      grid-column: span 4;
+    .product-card.featured {
+      grid-column: span 2;
       grid-row: span 2;
-    }
-
-    .product-card-3 {
-      grid-column: span 8;
     }
 
     .product-image-wrapper {
       position: relative;
       overflow: hidden;
-    }
-
-    .product-card-1 .product-image {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .product-card-2 .product-image {
-      width: 100%;
       height: 100%;
-      min-height: 450px;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
 
-    .product-card-3 .product-image {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      transition: transform 0.6s ease;
+    .product-card.featured .product-image {
+      height: 100%;
+      min-height: 624px;
     }
 
     .product-card:hover .product-image {
@@ -396,15 +422,19 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 32px;
-      background: linear-gradient(to top, rgba(43, 43, 43, 0.7), transparent);
+      padding: 24px;
+      background: linear-gradient(to top, rgba(43, 43, 43, 0.8), transparent);
     }
 
     .product-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 500;
       color: var(--text-inverse);
+    }
+
+    .product-card.featured .product-name {
+      font-size: 2rem;
     }
 
     .product-desc {
@@ -657,19 +687,17 @@
         height: 400px;
       }
 
-      .bento-grid {
-        grid-template-columns: 1fr;
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .product-card-1,
-      .product-card-2,
-      .product-card-3 {
-        grid-column: span 1;
+      .product-card.featured {
+        grid-column: span 2;
         grid-row: span 1;
       }
 
-      .product-card-2 .product-image {
-        min-height: 300px;
+      .product-card.featured .product-image {
+        min-height: 350px;
       }
 
       .story-container {
@@ -721,6 +749,23 @@
         font-size: 2rem;
       }
 
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card.featured {
+        grid-column: span 1;
+      }
+
+      .category-tabs {
+        gap: 8px;
+      }
+
+      .category-tab {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+      }
+
       .story-stats {
         flex-wrap: wrap;
         gap: 24px;
@@ -746,7 +791,8 @@
       </a>
 
       <nav class="nav">
-        <a href="#products" class="nav-link">Shop</a>
+        <a href="#candles" class="nav-link">Candles</a>
+        <a href="#holders" class="nav-link">Holders</a>
         <a href="#story" class="nav-link">Our Story</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -755,7 +801,7 @@
         <a href="https://instagram.com/soilandscent" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
         </a>
-        <a href="#products" class="btn-primary">Shop Now</a>
+        <a href="#candles" class="btn-primary">Shop Now</a>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
@@ -764,7 +810,8 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#products" class="mobile-nav-link" onclick="toggleMobileMenu()">Shop</a>
+      <a href="#candles" class="mobile-nav-link" onclick="toggleMobileMenu()">Candles</a>
+      <a href="#holders" class="mobile-nav-link" onclick="toggleMobileMenu()">Holders</a>
       <a href="#story" class="mobile-nav-link" onclick="toggleMobileMenu()">Our Story</a>
       <a href="#contact" class="mobile-nav-link" onclick="toggleMobileMenu()">Contact</a>
     </div>
@@ -776,20 +823,20 @@
       <div class="hero-content">
         <p class="hero-overline">Handcrafted with Love</p>
         <h1 class="hero-title">
-          Artisan Candles,<br>
-          <em>Hand-Poured</em><br>
-          with Love
+          Artisan Candles<br>
+          <em>& Architectural</em><br>
+          Holders
         </h1>
         <p class="hero-text">
-          Transform your space with our collection of unique, hand-crafted candles. 
+          Transform your space with our collection of unique, hand-crafted candles and stunning architectural holders. 
           Each piece tells a story of nature, warmth, and artisanal beauty.
         </p>
         <div class="hero-buttons">
-          <a href="#products" class="btn-primary">
+          <a href="#candles" class="btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
             Explore Collection
           </a>
-          <a href="https://wa.me/8789028909?text=Hi!%20I'm%20interested%20in%20your%20candles" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <a href="https://wa.me/918789028909?text=Hi!%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
             Chat with Us
           </a>
@@ -801,30 +848,85 @@
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section class="products" id="products">
+  <!-- Handcrafted Candles Section -->
+  <section class="products" id="candles">
     <div class="products-container">
       <div class="section-header">
         <p class="section-overline">Our Collection</p>
-        <h2 class="section-title">Crafted for Your Sanctuary</h2>
+        <h2 class="section-title">Handcrafted Candles</h2>
       </div>
 
-      <div class="bento-grid">
-        <!-- Product 1 -->
-        <div class="product-card product-card-1">
+      <div class="product-grid" id="candlesGrid">
+        <!-- Featured - Teddy Bear with Heart -->
+        <div class="product-card featured">
           <div class="product-image-wrapper">
-            <img src="https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/7885wsac_WhatsApp%20Image%202026-03-25%20at%2022.15.14.jpeg" alt="Daisy Dream Candle" class="product-image">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/ff2rxjz2_Screenshot%202026-03-27%20090556.png" alt="Rose Teddy Bear Candle with Heart" class="product-image">
             <div class="product-overlay">
-              <h3 class="product-name">Daisy Dream</h3>
-              <p class="product-desc">Hand-poured daisy flower candle</p>
+              <h3 class="product-name">Rose Teddy Bear</h3>
+              <p class="product-desc">Handcrafted teddy with heart - Perfect gift</p>
             </div>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card product-card-2">
-          <div class="product-image-wrapper" style="height: 100%;">
-            <img src="https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/c9fcaasz_WhatsApp%20Image%202026-03-25%20at%2022.15.17%20%281%29.jpeg" alt="Orange Blossom Candle" class="product-image">
+        <!-- Yellow Rose -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/entbdhw8_Screenshot%202026-03-27%20090356.png" alt="Yellow Rose Candle" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Golden Rose</h3>
+              <p class="product-desc">Elegant yellow rose candle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Rose -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/qhlmtnko_Screenshot%202026-03-27%20090850.png" alt="Red Rose Candle" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Crimson Rose</h3>
+              <p class="product-desc">Classic red rose candle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Teddy -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/th52zdv0_Screenshot%202026-03-27%20090759.png" alt="Red Teddy Bear Candle" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Ruby Teddy</h3>
+              <p class="product-desc">Adorable red teddy candle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bubble Candle -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/462ytt2x_Screenshot%202026-03-27%20090156.png" alt="Bubble Cube Candle" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Bubble Cube</h3>
+              <p class="product-desc">Modern sculptural candle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daisy -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/7885wsac_WhatsApp%20Image%202026-03-25%20at%2022.15.14.jpeg" alt="Daisy Candle" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Daisy Dream</h3>
+              <p class="product-desc">Delicate daisy flower candle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orange Flower -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/c9fcaasz_WhatsApp%20Image%202026-03-25%20at%2022.15.17%20%281%29.jpeg" alt="Orange Flower Candle" class="product-image">
             <div class="product-overlay">
               <h3 class="product-name">Orange Blossom</h3>
               <p class="product-desc">Vibrant citrus floral candle</p>
@@ -832,10 +934,10 @@
           </div>
         </div>
 
-        <!-- Product 3 -->
-        <div class="product-card product-card-3">
+        <!-- Daisy on Wood -->
+        <div class="product-card">
           <div class="product-image-wrapper">
-            <img src="https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/4haijl25_WhatsApp%20Image%202026-03-25%20at%2022.15.17.jpeg" alt="Pure Petal Candle" class="product-image">
+            <img src="https://customer-assets.emergentagent.com/job_b856dba4-22db-4c0d-a671-54195104353a/artifacts/4haijl25_WhatsApp%20Image%202026-03-25%20at%2022.15.17.jpeg" alt="Daisy on Wood Candle" class="product-image">
             <div class="product-overlay">
               <h3 class="product-name">Pure Petal</h3>
               <p class="product-desc">Elegant daisy on rustic wood</p>
@@ -845,7 +947,59 @@
       </div>
 
       <div class="products-cta">
-        <a href="https://wa.me/8789028909?text=Hi!%20I'm%20interested%20in%20your%20candles" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <a href="https://wa.me/918789028909?text=Hi!%20I%27m%20interested%20in%20your%20handcrafted%20candles" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          Order via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Candle Holders Section -->
+  <section class="products" id="holders" style="background-color: var(--bg-primary);">
+    <div class="products-container">
+      <div class="section-header">
+        <p class="section-overline">Elegant Decor</p>
+        <h2 class="section-title">Architectural Candle Holders</h2>
+      </div>
+
+      <div class="product-grid" id="holdersGrid">
+        <!-- Featured - Dome Holders Pair -->
+        <div class="product-card featured">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/5kqlmcxb_WhatsApp%20Image%202026-03-22%20at%2017.09.36.jpeg" alt="Architectural Dome Holders" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Dome Collection</h3>
+              <p class="product-desc">Architectural dome & fluted holders set</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Dome -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/fjrmynsg_WhatsApp%20Image%202026-03-22%20at%2017.09.36%20%281%29.jpeg" alt="Dome Candle Holder" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Mughal Dome</h3>
+              <p class="product-desc">Heritage-inspired architecture</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pink Bubble Holder -->
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="https://customer-assets.emergentagent.com/job_candle-landing/artifacts/z965yeez_WhatsApp%20Image%202026-03-22%20at%2017.09.35.jpeg" alt="Pink Bubble Holder Set" class="product-image">
+            <div class="product-overlay">
+              <h3 class="product-name">Blush Bubble Set</h3>
+              <p class="product-desc">Modern pink bubble tray & holder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-cta">
+        <a href="https://wa.me/918789028909?text=Hi!%20I%27m%20interested%20in%20your%20architectural%20candle%20holders" target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
           Order via WhatsApp
         </a>
@@ -871,8 +1025,9 @@
         </p>
         <p class="story-text">
           Each candle is carefully hand-poured with premium, eco-friendly ingredients. 
-          Our signature designs — from delicate flower petals to charming teddy bears — 
-          are created to bring warmth, beauty, and a touch of nature into your home.
+          Our signature designs — from delicate flower petals to charming teddy bears and 
+          stunning architectural holders — are created to bring warmth, beauty, and a touch 
+          of nature into your home.
         </p>
         <p class="story-text">
           We believe in the power of small moments. A flickering flame, a gentle fragrance, 
@@ -911,7 +1066,7 @@
           Have questions or want to place a custom order? We'd love to hear from you.
           Reach out and let's create something beautiful together.
         </p>
-        <a href="https://wa.me/8789028909?text=Hi!%20I'm%20interested%20in%20your%20candles" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <a href="https://wa.me/918789028909?text=Hi!%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener noreferrer" class="btn-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
           Start a Conversation
         </a>
@@ -927,7 +1082,7 @@
         </div>
         <div class="footer-section">
           <p class="footer-label">WhatsApp</p>
-          <a href="https://wa.me/8789028909?text=Hi!%20I'm%20interested%20in%20your%20candles" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <a href="https://wa.me/918789028909?text=Hi!%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener noreferrer" class="footer-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
             +91 8789028909
           </a>
@@ -945,7 +1100,7 @@
   </footer>
 
   <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/8789028909?text=Hi!%20I'm%20interested%20in%20your%20candles" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/918789028909?text=Hi!%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
   </a>
 
